@@ -18,7 +18,7 @@ jobs:
       - name: Configure Git user
         run: |
           git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.email "<>"
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -49,7 +49,7 @@ jobs:
           git push origin HEAD
 
       - name: Create release PR
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: releases/${{ github.event.inputs.release-branch-suffix }}
