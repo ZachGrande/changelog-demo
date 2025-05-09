@@ -23,11 +23,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Update develop branch
+        run: |
+          git fetch origin develop
+          git checkout develop
+          git pull origin develop
+
       - name: Create release branch
         run: |
-          git pull origin develop
-          git checkout -b releases/${{ github.event.inputs.release-branch-suffix }} origin/develop
+          git checkout -b releases/${{ github.event.inputs.release-branch-suffix }} develop
           git push origin HEAD
+
+      - name: Create release PR using GitHub CLI
+        run: |
+          gh pr create \
+            --title "Release: ${{ github.event.inputs.tag }}" \
+            --body "This PR merges the release branch into main." \
+            --base main \
+            --head releases/${{ github.event.inputs.release-branch-suffix }}
 
       - name: Generate changelog
         uses: janheinrichmerker/action-github-changelog-generator@v2.3
@@ -47,15 +60,6 @@ jobs:
           git add CHANGELOG.md
           git commit -m "chore: update CHANGELOG for ${{ github.event.inputs.tag }}"
           git push origin HEAD
-
-      - name: Create release PR
-        uses: peter-evans/create-pull-request@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: releases/${{ github.event.inputs.release-branch-suffix }}
-          base: main
-          title: "Release: ${{ github.event.inputs.tag }}"
-          body: "This PR merges the release branch into main."
 
       - name: Create tag
         run: |
