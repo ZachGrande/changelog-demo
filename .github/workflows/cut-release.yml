@@ -3,10 +3,12 @@ name: Cut a Release
 on:
   workflow_dispatch:
     inputs:
+      release-branch-suffix:
+        description: 'Suffix for the release branch (e.g., 20250509)'
+        required: true
       tag:
         description: 'Tag for the release (e.g., v1.0.0)'
-        default: 'untagged-release'
-        required: false
+        required: true
 
 jobs:
   create-release-branch:
@@ -19,17 +21,8 @@ jobs:
       - name: Create release branch
         run: |
           git fetch origin develop
-          git checkout -b releases/${{ github.event.inputs.tag }} origin/develop
+          git checkout -b releases/${{ github.event.inputs.release-branch-suffix }} origin/develop
           git push origin HEAD
-
-      - name: Create release PR
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: releases/${{ github.event.inputs.tag }}
-          base: main
-          title: "Release: ${{ github.event.inputs.tag }}"
-          body: "This PR merges the release branch into main."
 
       - name: Generate changelog
         uses: janheinrichmerker/action-github-changelog-generator@v2.3
@@ -38,23 +31,30 @@ jobs:
           user: ${{ github.repository_owner }}
           project: ${{ github.event.repository.name }}
           output: CHANGELOG.md
-          releaseBranch: 'releases/*'
+          releaseBranch: 'releases/${{ github.event.inputs.release-branch-suffix }}'
           futureRelease: ${{ github.event.inputs.tag }}
           excludeLabels: 'duplicate,question,invalid,wontfix,help wanted'
           issues: true
           pullRequests: true
 
-      - name: Commit changelog
+      - name: Commit changelog to release branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add CHANGELOG.md
           git commit -m "chore: update CHANGELOG for ${{ github.event.inputs.tag }}"
-          git pull origin develop --no-rebase
-          git push origin HEAD:develop
+          git push origin HEAD
+
+      - name: Create release PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: releases/${{ github.event.inputs.release-branch-suffix }}
+          base: main
+          title: "Release: ${{ github.event.inputs.tag }}"
+          body: "This PR merges the release branch into main."
 
       - name: Create tag
-        if: ${{ github.event.inputs.tag != 'untagged-release' }}
         run: |
           git tag -a ${{ github.event.inputs.tag }} -m "Release ${{ github.event.inputs.tag }}"
           git push origin --tags
