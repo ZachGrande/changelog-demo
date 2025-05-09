@@ -1,0 +1,60 @@
+name: Cut a Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for the release (e.g., v1.0.0)'
+        default: 'untagged-release'
+        required: false
+
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create release branch
+        run: |
+          git fetch origin develop
+          git checkout -b releases/${{ github.event.inputs.tag }} origin/develop
+          git push origin HEAD
+
+      - name: Create release PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: releases/${{ github.event.inputs.tag }}
+          base: main
+          title: "Release: ${{ github.event.inputs.tag }}"
+          body: "This PR merges the release branch into main."
+
+      - name: Generate changelog
+        uses: janheinrichmerker/action-github-changelog-generator@v2.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          project: ${{ github.event.repository.name }}
+          output: CHANGELOG.md
+          releaseBranch: 'releases/*'
+          futureRelease: ${{ github.event.inputs.tag }}
+          excludeLabels: 'duplicate,question,invalid,wontfix,help wanted'
+          issues: true
+          pullRequests: true
+
+      - name: Commit changelog
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add CHANGELOG.md
+          git commit -m "chore: update CHANGELOG for ${{ github.event.inputs.tag }}"
+          git pull origin develop --no-rebase
+          git push origin HEAD:develop
+
+      - name: Create tag
+        if: ${{ github.event.inputs.tag != 'untagged-release' }}
+        run: |
+          git tag -a ${{ github.event.inputs.tag }} -m "Release ${{ github.event.inputs.tag }}"
+          git push origin --tags
