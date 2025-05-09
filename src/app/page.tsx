@@ -7,7 +7,7 @@ export default function Home() {
         <Image
           className="dark:invert"
           src="/github.png"
-          alt="Next.js logo"
+          alt="GitHub logo"
           width={180}
           height={38}
           priority
