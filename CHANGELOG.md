@@ -1,5 +1,21 @@
 # Changelog
 
+## [v1.1.8](https://github.com/ZachGrande/changelog-demo/tree/v1.1.8) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.7...v1.1.8)
+
+**Closed issues:**
+
+- Fetch main branch when finalizing [\#27](https://github.com/ZachGrande/changelog-demo/issues/27)
+
+**Merged pull requests:**
+
+- Resolve workflow error [\#28](https://github.com/ZachGrande/changelog-demo/pull/28) ([ZachGrande](https://github.com/ZachGrande))
+- Remove wildcard [\#25](https://github.com/ZachGrande/changelog-demo/pull/25) ([ZachGrande](https://github.com/ZachGrande))
+- Zach/21/identify-branch [\#22](https://github.com/ZachGrande/changelog-demo/pull/22) ([ZachGrande](https://github.com/ZachGrande))
+- Use github cli for finalize [\#19](https://github.com/ZachGrande/changelog-demo/pull/19) ([ZachGrande](https://github.com/ZachGrande))
+- Release: v1.1.4 [\#17](https://github.com/ZachGrande/changelog-demo/pull/17) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [v1.1.7](https://github.com/ZachGrande/changelog-demo/tree/v1.1.7) (2025-05-09)
 
 [Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.6...v1.1.7)
@@ -7,13 +23,6 @@
 **Closed issues:**
 
 - Remove wildcard filter in query [\#24](https://github.com/ZachGrande/changelog-demo/issues/24)
-
-**Merged pull requests:**
-
-- Zach/24/base-branch [\#25](https://github.com/ZachGrande/changelog-demo/pull/25) ([ZachGrande](https://github.com/ZachGrande))
-- Zach/21/identify-branch [\#22](https://github.com/ZachGrande/changelog-demo/pull/22) ([ZachGrande](https://github.com/ZachGrande))
-- Use github cli for finalize [\#19](https://github.com/ZachGrande/changelog-demo/pull/19) ([ZachGrande](https://github.com/ZachGrande))
-- Release: v1.1.4 [\#17](https://github.com/ZachGrande/changelog-demo/pull/17) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [v1.1.6](https://github.com/ZachGrande/changelog-demo/tree/v1.1.6) (2025-05-09)
 

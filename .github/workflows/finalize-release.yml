@@ -32,6 +32,11 @@ jobs:
             echo "No open pull request found for the release branch."
           fi
 
+      - name: Fetch and checkout main branch
+        run: |
+          git fetch origin main
+          git checkout main
+
       - name: Merge main into develop
         run: |
           git checkout develop
