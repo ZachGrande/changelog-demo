@@ -32,4 +32,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add CHANGELOG.md
           git commit -m "chore: update CHANGELOG for ${{ github.ref_name }}"
-          git push
+          git push origin HEAD:main
