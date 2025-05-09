@@ -1,0 +1,30 @@
+name: Finalize a Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  finalize-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure Git user
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "<>"
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Merge release branch into main
+        run: |
+          git fetch origin
+          git checkout main
+          git merge --no-ff releases/* -m "Finalize release"
+          git push origin main
+
+      - name: Merge main into develop
+        run: |
+          git checkout develop
+          git merge --no-ff main -m "Sync main into develop"
+          git push origin develop

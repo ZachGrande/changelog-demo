@@ -1,12 +1,40 @@
 # Changelog
 
-## [v1.0.2](https://github.com/ZachGrande/changelog-demo/tree/v1.0.2) (2025-05-09)
+## [v1.1.4](https://github.com/ZachGrande/changelog-demo/tree/v1.1.4) (2025-05-09)
 
-[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.0.2...v1.0.2)
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.2...v1.1.4)
+
+**Closed issues:**
+
+- Change release target branch [\#15](https://github.com/ZachGrande/changelog-demo/issues/15)
+- Configure git user at beginning of release process [\#13](https://github.com/ZachGrande/changelog-demo/issues/13)
+- Automate release create and finalize [\#11](https://github.com/ZachGrande/changelog-demo/issues/11)
+
+**Merged pull requests:**
+
+- Additional git user updates [\#16](https://github.com/ZachGrande/changelog-demo/pull/16) ([ZachGrande](https://github.com/ZachGrande))
+- Configure git user [\#14](https://github.com/ZachGrande/changelog-demo/pull/14) ([ZachGrande](https://github.com/ZachGrande))
+- Automate releases [\#12](https://github.com/ZachGrande/changelog-demo/pull/12) ([ZachGrande](https://github.com/ZachGrande))
+
+## [v1.1.2](https://github.com/ZachGrande/changelog-demo/tree/v1.1.2) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.1...v1.1.2)
+
+## [v1.1.1](https://github.com/ZachGrande/changelog-demo/tree/v1.1.1) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.0...v1.1.1)
+
+## [v1.1.0](https://github.com/ZachGrande/changelog-demo/tree/v1.1.0) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.0.2...v1.1.0)
 
 **Closed issues:**
 
 - Target changelog to develop [\#8](https://github.com/ZachGrande/changelog-demo/issues/8)
+
+**Merged pull requests:**
+
+- releases/20250509 [\#10](https://github.com/ZachGrande/changelog-demo/pull/10) ([ZachGrande](https://github.com/ZachGrande))
 
 ## [v1.0.2](https://github.com/ZachGrande/changelog-demo/tree/v1.0.2) (2025-05-09)
 
