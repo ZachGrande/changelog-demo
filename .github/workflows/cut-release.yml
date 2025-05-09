@@ -35,6 +35,8 @@ jobs:
           git push origin HEAD
 
       - name: Create release PR using GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr create \
             --title "Release: ${{ github.event.inputs.tag }}" \
