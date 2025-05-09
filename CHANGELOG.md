@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.1.12](https://github.com/ZachGrande/changelog-demo/tree/v1.1.12) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.11...v1.1.12)
+
+- Add sources to readme [\#36](https://github.com/ZachGrande/changelog-demo/issues/36)
+
+**Merged pull requests:**
+
+- docs: update with repo purpose [\#41](https://github.com/ZachGrande/changelog-demo/pull/41) ([ZachGrande](https://github.com/ZachGrande))
+- Release: v1.1.11 [\#39](https://github.com/ZachGrande/changelog-demo/pull/39) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [v1.1.11](https://github.com/ZachGrande/changelog-demo/tree/v1.1.11) (2025-05-09)
 
 [Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.10...v1.1.11)
