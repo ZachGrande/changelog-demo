@@ -20,7 +20,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          PR_NUMBERS=$(gh pr list --state open --base main --head releases/* --json number -q '.[].number')
+          PR_NUMBERS=$(gh pr list --state open --base main --json number -q '.[].number')
           PR_COUNT=$(echo "$PR_NUMBERS" | wc -l)
           if [ "$PR_COUNT" -gt 1 ]; then
             echo "More than 1 release PR is open. Exiting workflow."
