@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.1.11](https://github.com/ZachGrande/changelog-demo/tree/v1.1.11) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.10...v1.1.11)
+
+- Add "Product update" section to changelog [\#37](https://github.com/ZachGrande/changelog-demo/issues/37)
+
+**Merged pull requests:**
+
+- Add Product Notes to changelog [\#38](https://github.com/ZachGrande/changelog-demo/pull/38) ([ZachGrande](https://github.com/ZachGrande))
+- Release: v1.1.10 [\#35](https://github.com/ZachGrande/changelog-demo/pull/35) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [v1.1.10](https://github.com/ZachGrande/changelog-demo/tree/v1.1.10) (2025-05-09)
 
 [Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.9...v1.1.10)
