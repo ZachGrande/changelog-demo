@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.1.10](https://github.com/ZachGrande/changelog-demo/tree/v1.1.10) (2025-05-09)
+
+[Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.9...v1.1.10)
+
+**Closed issues:**
+
+- Remove changelog footer [\#32](https://github.com/ZachGrande/changelog-demo/issues/32)
+
+**Merged pull requests:**
+
+- Clean up changelog [\#33](https://github.com/ZachGrande/changelog-demo/pull/33) ([ZachGrande](https://github.com/ZachGrande))
+- Release: v1.1.9 [\#31](https://github.com/ZachGrande/changelog-demo/pull/31) ([github-actions[bot]](https://github.com/apps/github-actions))
+
 ## [v1.1.9](https://github.com/ZachGrande/changelog-demo/tree/v1.1.9) (2025-05-09)
 
 [Full Changelog](https://github.com/ZachGrande/changelog-demo/compare/v1.1.8...v1.1.9)
