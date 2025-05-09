@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Changelog Demo
 
-## Getting Started
+This project demonstrates the automatic maintenance of `CHANGELOG.md` via GitHub Actions
 
-First, run the development server:
+## Changelog Generation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Changelogs are generated using [`github-changelog-generator`](https://github.com/github-changelog-generator/github-changelog-generator)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development Lifecycle
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project uses [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Contribute to an issue
 
-## Learn More
+- Take an issue off the board: [Issues](https://github.com/ZachGrande/changelog-demo/issues)
+- Make a new branch from `develop` with the convention `{name}-{issue #}-{short description}`
+- Open a Pull Request against `develop`
+  - Begin the PR description with "Closes `{issue #}`"
+- Request a review
 
-To learn more about Next.js, take a look at the following resources:
+### Cutting a release
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Updates are deployed from a release branch. The branch is automatically generated using an Action. Changelog updates will be generated during this process and added to the release branch.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Merge desired Pull Requests into `develop`
+- Run the [Cut a Release](https://github.com/ZachGrande/changelog-demo/actions/workflows/cut-release.yml) workflow
+  - Suffix for the release branch: the current day's date
+    - e.g., `20250509`
+    - If multiple PRs in one day, append `-b`, `-c`, etc.
+  - Tag for the release: follow [semantic versioning](https://semver.org/)
+    - e.g., `v1.0.0`
 
-## Deploy on Vercel
+### Deploy a Release
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Not implemented
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Finalize a Release
+
+After the release is deployed, make `main` and `develop` consistent.
+
+- Run the [Finalize a Release](https://github.com/ZachGrande/changelog-demo/actions/workflows/finalize-release.yml) workflow
