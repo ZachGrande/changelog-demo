@@ -16,21 +16,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Trigger Buildkite build on release branch
+      - name: Install jq
         run: |
-          # Install jq (required by the run script)
           sudo apt-get update
           sudo apt-get install -y jq
-          
-          # Install Buildkite CLI
+
+      - name: Install Buildkite CLI
+        run: |
           curl -sL https://github.com/buildkite/cli/releases/download/v3.8.0/bk_3.8.0_linux_amd64.tar.gz | tar -xz
           sudo mv bk_3.8.0_linux_amd64/bk /usr/local/bin/bk
           chmod +x /usr/local/bin/bk
-          
-          # Make the run script executable
-          chmod +x bin/bk/run
-          
-          # Run the script
-          bin/bk/run
+
+      - name: Make run script executable
+        run: chmod +x bin/bk/run
+
+      - name: Configure Buildkite CLI
+        run: |
+          bk configure --token ${{ secrets.BUILDKITE_TOKEN }} --org "recognize-1"
+
+      - name: Trigger Buildkite build on release branch
+        run: bin/bk/run
         env:
           BUILDKITE_API_TOKEN: ${{ secrets.BUILDKITE_TOKEN }}
