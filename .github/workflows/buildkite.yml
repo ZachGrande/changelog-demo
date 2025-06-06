@@ -23,8 +23,8 @@ jobs:
           sudo apt-get install -y jq
           
           # Install Buildkite CLI
-          curl -sL https://github.com/buildkite/cli/releases/download/v3.2.0/bk_3.2.0_linux_amd64.tar.gz | tar -xz
-          sudo mv bk_3.2.0_linux_amd64/bk /usr/local/bin/bk
+          curl -sL https://github.com/buildkite/cli/releases/download/v3.8.0/bk_3.8.0_linux_amd64.tar.gz | tar -xz
+          sudo mv bk_3.8.0_linux_amd64/bk /usr/local/bin/bk
           chmod +x /usr/local/bin/bk
           
           # Make the run script executable
